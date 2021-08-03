@@ -1,0 +1,30 @@
+{
+    "nombreApp" : "Componentes",
+    "rutas" : [
+        {
+            "ruta" : "sumas",
+            "icon" : "suma",
+            "texto": "Suma"
+        },
+        {
+            "ruta" : "restas",
+            "icon" : "resta",
+            "texto": "Resta"
+        },
+        {
+            "ruta" : "multiplicaciones",
+            "icon" : "multiplicacion",
+            "texto": "Multiplicación"
+        },
+        {
+            "ruta" : "divisiones",
+            "icon" : "division",
+            "texto": "División"
+        },
+        {
+            "ruta" : "factorial",
+            "icon" : "factorial",
+            "texto": "Factorial"
+        }
+    ]
+}
