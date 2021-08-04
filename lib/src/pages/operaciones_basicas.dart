@@ -44,7 +44,7 @@ class _OperacionesBasicasPageState extends State<OperacionesBasicasPage> {
       onChanged: (valor){
         setState(() {
           if(valor==''){
-            valor='0';
+            _numero1=0;
           }else{
             _numero1 = double.parse(valor);  
           }
@@ -54,7 +54,7 @@ class _OperacionesBasicasPageState extends State<OperacionesBasicasPage> {
   }
 
   Widget _crearInput2() {
-    return TextField(
+    return TextFormField(
       keyboardType: TextInputType.number,
       decoration: InputDecoration(
         border: OutlineInputBorder(),
@@ -63,13 +63,25 @@ class _OperacionesBasicasPageState extends State<OperacionesBasicasPage> {
       onChanged: (valor){
         setState(() {
           if(valor==''){
-            valor='0';
+            if(_nombre=='division'){
+              print ('No se puede realizar division entre 0');
+            }else{
+              print('Hola');
+              _numero2=0;
+            }
+          
           }else{
-            _numero2 = double.parse(valor);  
+            _numero2 = double.parse(valor);
+            //return('Aqui');  
           }
         });
       },
-       
+      validator: (value) {
+        if (value == '1' ) {
+          return 'Please enter some text';
+        }
+        return null;
+      },
     );
   }
 
