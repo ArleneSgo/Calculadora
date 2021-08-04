@@ -77,7 +77,7 @@ class _OperacionesBasicasPageState extends State<OperacionesBasicasPage> {
         });
       },
       validator: (value) {
-        if (value == '1' ) {
+        if (value == '' ) {
           return 'Please enter some text';
         }
         return null;
