@@ -11,9 +11,6 @@ final _icons = <String, IconData>{
   'tune'          : Icons.tune,
   'suma'          : Icons.add,
   'resta'         : Icons.remove,
-  'multiplicacion': Icons.multiple_stop,
-  'division'      : Icons.safety_divider,
-  'factorial'     : Icons.format_list_numbered,
 };
 
 

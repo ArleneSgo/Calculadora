@@ -1,3 +1,4 @@
+//import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class OperacionesBasicasPage extends StatefulWidget {
@@ -12,6 +13,8 @@ class _OperacionesBasicasPageState extends State<OperacionesBasicasPage> {
   double _numero1=0;
   double _numero2=0;
   double _resultado=0;
+  bool _validateCampo = false;
+  bool _validateCero = false;
   @override
   Widget build(BuildContext context) {
     _nombre=widget._nombre;
@@ -29,6 +32,8 @@ class _OperacionesBasicasPageState extends State<OperacionesBasicasPage> {
            _crearButton(),
            Divider(),
            _darResultado(),
+           Divider(),
+           
          ],
        )
     );
@@ -39,14 +44,17 @@ class _OperacionesBasicasPageState extends State<OperacionesBasicasPage> {
       keyboardType: TextInputType.number,
       decoration: InputDecoration(
         border: OutlineInputBorder(),
-        hintText: '0',  
+        labelText: 'Valor 1',
+        errorText: _validateCampo ? '*Campo vacio': null,
+        //+hintText: '0',  
       ),   
       onChanged: (valor){
         setState(() {
           if(valor==''){
-            _numero1=0;
+            _validateCampo = true;
           }else{
-            _numero1 = double.parse(valor);  
+            _validateCampo = false;
+            _numero1 = double.parse(valor); 
           }
         });
       },  
@@ -54,26 +62,27 @@ class _OperacionesBasicasPageState extends State<OperacionesBasicasPage> {
   }
 
   Widget _crearInput2() {
-    return TextFormField(
+    return TextField(
       keyboardType: TextInputType.number,
       decoration: InputDecoration(
         border: OutlineInputBorder(),
-        hintText: '0',
+        labelText: 'Valor 2',
+        errorText: _validateCero ? 'No se puede realizar división entre 0' : _validateCampo ? '*Campo vacio': null,
       ),   
       onChanged: (valor){
         setState(() {
           if(valor==''){
-            if(_nombre=='division'){
-              print ('No se puede realizar division entre 0');
-            }else{
-              print('Hola');
-              _numero2=0;
-            }
-          
+            _validateCampo = true;
           }else{
+            _validateCampo = false;
+            if(_nombre=='división' && valor=='0'){
+              _validateCero=true;
+            }else{
+              _validateCero=false;
+            }
             _numero2 = double.parse(valor);
-            //return('Aqui');  
           }
+          
         });
       },
     );
@@ -102,9 +111,9 @@ class _OperacionesBasicasPageState extends State<OperacionesBasicasPage> {
       resultado = _numero1 + _numero2;
     }else if(_nombre=='resta'){
       resultado= _numero1 - _numero2;
-    }else if(_nombre=='multiplicacion'){
+    }else if(_nombre=='multiplicación'){
       resultado= _numero1 * _numero2;
-    }else if(_nombre=='division'){
+    }else if(_nombre=='división'){
       resultado= _numero1 / _numero2;
     }
     return resultado;

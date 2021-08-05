@@ -10,8 +10,8 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
       '/'      : ( BuildContext context ) => HomePage(),
       'sumas'  : ( BuildContext context ) => OperacionesBasicasPage('suma'),
       'restas'   : ( BuildContext context ) => OperacionesBasicasPage('resta'),
-      'multiplicaciones'   : ( BuildContext context ) => OperacionesBasicasPage('multiplicacion'),
-      'divisiones' : ( BuildContext context ) => OperacionesBasicasPage('division'),
+      'multiplicaciones'   : ( BuildContext context ) => OperacionesBasicasPage('multiplicación'),
+      'divisiones' : ( BuildContext context ) => OperacionesBasicasPage('división'),
       'factorial' : ( BuildContext context ) => FactorialPage(),
   };
 
